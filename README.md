@@ -1,198 +1,334 @@
-# 🎫 EventChain: Revolutionizing Ticketing with Blockchain Technology
-Welcome to EventChain! This innovative project harnesses the transformative power of **blockchain technology** to address and resolve the persistent issues plaguing the event ticketing industry, including counterfeit tickets, ticket scalping, and lack of transparency.
-In the traditional ticketing system, these problems have caused significant financial losses and frustration for both event organizers and attendees. By leveraging blockchain, EventChain aims to create a secure, transparent, and tamper-proof ticketing solution that benefits all stakeholders.
+# 🎫 EventMint - NFT Ticketing Platform on Monad
+
+> Revolutionizing event ticketing with blockchain technology - Built for Monad Testnet
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Solidity-2E8B57?style=for-the-badge&logo=solidity&logoColor=white" />
-  <img src="https://img.shields.io/badge/Alchemy-039BE5?style=for-the-badge&logo=alchemy&logoColor=white" />
-  <img src="https://img.shields.io/badge/Remix IDE-3e5f8a?style=for-the-badge&logo=remix&logoColor=white" />
-  <img src="https://img.shields.io/badge/Hardhat-E6522C?style=for-the-badge&logo=hardhat&logoColor=white" />
-  <img src="https://img.shields.io/badge/Polygon-854ce6?style=for-the-badge&logo=Polygon&logoColor=white" />
-  <img src="https://img.shields.io/badge/Smart%20Contracts-8B0000?style=for-the-badge&logo=Polygon&logoColor=white" />
+  <img src="https://img.shields.io/badge/Monad-10143-purple?style=for-the-badge&logo=ethereum&logoColor=white" />
+  <img src="https://img.shields.io/badge/Solidity-363636?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Hardhat-FFF100?style=for-the-badge&logo=hardhat&logoColor=black" />
+  <img src="https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
 </p>
 
-## ⚠️ Disclaimer  
+## 🌟 What is EventMint?
 
-**EventChain** is an **experimental and educational project** designed to showcase the potential of **blockchain technology** in revolutionizing the event ticketing industry. While this system demonstrates the benefits of utilizing **NFTs** and blockchain for secure, transparent, and tamper-proof ticketing, it is still a **proof-of-concept** and should not be used for **real-world applications**.
+EventMint is a decentralized NFT ticketing platform built on **Monad blockchain** that transforms traditional event tickets into secure, tradeable NFTs. Say goodbye to ticket fraud, scalping, and lack of transparency!
 
-This project aims to provide a **solution** to issues such as counterfeit tickets, scalping, and transparency in the event ticketing industry.
+### ✨ Key Features
 
-## 🌟 Key Benefits of EventChain:
-* 🔒 Secure and Tamper-Proof Tickets: Utilizes non-fungible tokens (NFTs) on the Polygon blockchain to represent tickets, ensuring they cannot be duplicated or counterfeited.
-* 🕵️ Transparent Ownership and Traceability: Every transfer of a ticket is recorded on the blockchain, creating an immutable and auditable ownership history.
-* ⏰ Expiration Control and Event Management: Organizers can set expiration dates for tickets, preventing their misuse after the event.
-* 💸 Resale Regulation: Allows setting a maximum resale price for tickets to combat scalping.
+- �️ **NFT-Based Tickets** - Every ticket is a unique ERC-721 token
+- 🔐 **Fraud Prevention** - Blockchain-verified ownership eliminates counterfeits
+- 💱 **Secure Transfers** - Transparent ticket resale and transfers
+- 📱 **QR Verification** - Instant ticket validation at events
+- ⚡ **Lightning Fast** - Powered by Monad's high-performance blockchain
+- 🎨 **Beautiful UI** - Modern glassmorphism design with smooth animations
 
-## More Details 📝
+## 🚀 Live Demo
 
-For comprehensive information about this project, check out this [Medium article](https://sanchezsanchezsergio418.medium.com/eventchain-revolutionizing-ticketing-with-blockchain-technology-3ac39dbe20cb).
+**Deployed Contracts on Monad Testnet:**
+- EventChainContract: `0x7D70097F097Ba768Dda48E314206f5A879d2873A`
+- EventChainEventManagerContract: `0x3b3E674a6BEaa5D49dE3365Ad6e991F1Dd9701aA`
 
-## UML Design Diagram
-Complete UML diagram of decentralized application design.
+**Network Details:**
+- Chain ID: `10143`
+- RPC: `https://testnet-rpc.monad.xyz`
+- Explorer: [testnet.monadexplorer.com](https://testnet.monadexplorer.com)
+- Faucet: [faucet.monad.xyz](https://faucet.monad.xyz/)
 
-<img width="auto" src="./doc/diagram.svg" />
+## 📸 Screenshots
+
+### My Tickets Page
+View and manage your NFT ticket collection with real-time blockchain data.
+
+### Marketplace
+Browse and purchase tickets for upcoming events.
+
+### Create Event
+Event organizers can easily create events and mint NFT tickets.
 
 ## 🛠️ Installation
-First, clone the repository:
 
+### Prerequisites
+- Node.js 18+ and npm
+- MetaMask browser extension
+- MON testnet tokens from [Monad Faucet](https://faucet.monad.xyz/)
+
+### Quick Start
+
+1. **Clone the repository**
 ```bash
-git clone https://github.com/sergio11/eventchain_blockchain.git
-cd eventchain_blockchain
+git clone https://github.com/YadavSourabhGH/monad-blitz-eventmint.git
+cd monad-blitz-eventmint
 ```
 
-Install the necessary dependencies:
-
+2. **Install dependencies**
 ```bash
+# Root dependencies (Hardhat & contracts)
 npm install
+
+# Frontend dependencies
+cd ui
+npm install
+cd ..
 ```
 
-## 💼 Smart Contracts
-
-### 🎟️ EventChainContract
-The **EventChainContract** is a cornerstone of the EventChain ticketing ecosystem. It is designed to manage the entire lifecycle of event tickets on the blockchain. This contract leverages the robustness of **Ethereum's ERC721** standard to ensure each ticket is unique, secure, and traceable. Key functionalities include minting new tickets, validating ticket authenticity, updating ticket metadata, and handling resale regulations, all while maintaining an immutable record of ownership history. This ensures a transparent, tamper-proof, and fair ticketing process for both event organizers and attendees.
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
-
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "./IEventChainContract.sol";
-
-contract EventChainContract is ERC721, ERC721URIStorage, ERC721Burnable, Ownable, IEventChainContract {
-    // Contract implementation
-}
-
+3. **Start the frontend**
+```bash
+cd ui
+npm run dev
 ```
 
-#### 🔑 Key Functions
-* **safeMint:** 🎟️ Mints a new ticket with specified details such as event information, original price, and expiration date. This function ensures the creation of a unique non-fungible token (NFT) representing the ticket on the blockchain.
-* **validateTicket:** 🎫 Validates a ticket at the event by marking it as used, preventing multiple uses. This function verifies if the ticket is still within its validity period.
-* **getTicketHistory:** 📜 Retrieves the ownership history of a ticket, providing transparency and traceability of ownership changes over time. This history is recorded on the blockchain and is immutable.
-* **getTicketStatus:** 🕵️‍♂️ Checks if a ticket is used and still valid, indicating whether it has been used before and if it is still within its validity period.
-* **updateTicketMetadata:** 🔄 Updates the metadata of a ticket, allowing modifications to event details associated with the ticket, such as event name, location, or date.
-* **setMaxResalePrice:** 💰 Sets a maximum resale price for a ticket, helping organizers regulate ticket resale and prevent scalping.
-* **burnExpiredTickets:** 🔥 Burns tickets that have expired, removing them from the system to free up resources and ensure efficient management of ticket inventory.
+Visit `http://localhost:8080` 🚀
 
-### 🎟️ EventChainEventManagerContract
-The **EventChainEventManagerContract** is the backbone of the EventChain ecosystem, enabling seamless event management, ticket minting, and event transfer functionalities. It empowers organizers to create, manage, and transfer events securely and transparently on the blockchain, ensuring a smooth and reliable ticketing process from start to finish.
+### Setup MetaMask for Monad Testnet
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.9;
+Add Monad Testnet to MetaMask:
+- **Network Name**: Monad Testnet
+- **RPC URL**: `https://testnet-rpc.monad.xyz`
+- **Chain ID**: `10143`
+- **Currency Symbol**: `MON`
+- **Block Explorer**: `https://testnet.monadexplorer.com`
 
-import "./IEventChainContract.sol";
-import "./IEventChainEventManagerContract.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+Get testnet MON tokens: [faucet.monad.xyz](https://faucet.monad.xyz/)
 
-contract EventChainEventManagerContract is Ownable, IEventChainEventManagerContract {
-    // Contract implementation
-}
+## 📦 Tech Stack
+
+### Blockchain Layer
+- **Network**: Monad Testnet (Chain ID: 10143)
+- **Smart Contracts**: Solidity ^0.8.0
+- **Token Standard**: ERC-721 (NFTs)
+- **Development Framework**: Hardhat
+- **Testing**: Hardhat + Ethers.js
+
+### Frontend Application
+- **Framework**: React 18 + TypeScript
+- **Styling**: Tailwind CSS
+- **UI Library**: shadcn/ui + Radix UI
+- **State Management**: TanStack Query (React Query)
+- **Web3 Integration**: wagmi + viem
+- **QR Code Generation**: qrcode.react
+- **Build Tool**: Vite
+- **Icons**: Lucide React
+
+### Smart Contracts
+
+**EventChainContract.sol** - ERC-721 NFT Ticket Contract
+- Mints unique NFT tickets
+- Validates and redeems tickets
+- Tracks ownership history
+- Manages transfer restrictions
+
+**EventChainEventManagerContract.sol** - Event Management
+- Creates and manages events
+- Handles ticket sales with MON payments
+- Tracks sales and redemptions
+- Event ownership transfers
+
+## 💡 How It Works
+
+### For Event Organizers
+
+1. **Create Event**
+   - Navigate to "Create Event" page
+   - Fill in event details (name, date, location, price, image)
+   - Set total tickets available
+   - Confirm transaction in MetaMask
+   - Event created on Monad blockchain ✅
+
+2. **Manage Sales**
+   - View real-time ticket sales
+   - Track redemptions
+   - Monitor revenue in MON
+
+### For Attendees
+
+1. **Purchase Tickets**
+   - Browse events in Marketplace
+   - Click "Buy Ticket"
+   - Confirm payment in MetaMask (MON tokens)
+   - NFT minted to your wallet 🎫
+
+2. **Use Your Tickets**
+   - View tickets in "My Tickets"
+   - Generate QR code for entry
+   - Show QR at event entrance
+   - Ticket verified on blockchain ✅
+
+3. **Transfer/Resell**
+   - Transfer tickets to friends
+   - Resell on secondary markets
+   - All transfers recorded on-chain
+
+## 📁 Project Structure
 
 ```
-
-#### 🔑 Key Functions
-* **setEventChainAddress:** 🎟️ Sets the address of the EventChainContract, enabling communication between the EventChainEventManagerContract and the EventChainContract.
-* **createEvent:** 📅 Creates a new event with specified details such as name, location, date, and ticket price. This function allows event organizers to set up events on the platform.
-* **getEventDetails:** 📋 Retrieves the details of a specific event, providing information such as event name, location, date, and ticket price.
-* **mintTicket:** 💳 Mints a new ticket for a specific event, allowing event organizers to issue tickets to attendees.
-* **transferEvent:** 🔄 Transfers the ownership of an event to another organizer, enabling event management by different entities over time.
-
-## 🚀 Usage
-
-### 📜 Deploying Contracts
-Deploying the EventChain smart contracts is a straightforward process using **Hardhat Ignition***. This tool simplifies the deployment process, allowing you to deploy your contracts with ease and confidence. Below is a step-by-step guide to deploying the EventChain contracts to your specified network.
-
-Use the following command to deploy the contracts to the specified network (in this case, Polygon amoy):
-
-```shell
-npx hardhat ignition deploy ignition/modules/EventChain.js --network amoy   
+eventchain_blockchain/
+├── contracts/                  # Solidity smart contracts
+│   ├── EventChainContract.sol
+│   ├── EventChainEventManagerContract.sol
+│   └── interfaces/
+├── ui/                         # React frontend
+│   ├── src/
+│   │   ├── components/        # Reusable components
+│   │   ├── pages/             # Page components
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── lib/               # Contract ABIs & configs
+│   │   ├── contexts/          # React contexts
+│   │   └── assets/
+│   └── public/
+├── scripts/                    # Deployment scripts
+├── test/                       # Contract tests
+├── ignition/                   # Hardhat Ignition modules
+├── hardhat.config.js           # Hardhat configuration
+└── package.json
 ```
 
-```shell
-√ Confirm deploy to network amoy (80002)? ... yes
-Hardhat Ignition 🚀
+## 🎨 Features Walkthrough
 
-Deploying [ EventChain ]
+### Beautiful UI/UX
+- **Glassmorphism Design** - Modern frosted glass effects
+- **Animated Backgrounds** - Dynamic dotted particle system
+- **Gradient Accents** - Eye-catching color transitions
+- **Responsive Layout** - Perfect on all devices
+- **Dark Theme** - Easy on the eyes
+- **Smooth Animations** - Delightful user experience
 
-Batch #1
-  Executed EventChain#EventChainContract
+### Blockchain Integration
+- **Real-time Updates** - Live blockchain data sync
+- **MetaMask Integration** - Seamless wallet connection
+- **Transaction Tracking** - Monitor all blockchain operations
+- **Gas Optimization** - Efficient smart contract calls
+- **Error Handling** - User-friendly error messages
 
-Batch #2
-  Executed EventChain#EventChainEventManagerContract
-
-[ EventChain ] successfully deployed 🚀
-
-Deployed Addresses
-
-EventChain#EventChainContract - 0xd4bC2d72a3f04ad194130ADcC35E9592a2a1761B
-EventChain#EventChainEventManagerContract - 0xbaCAfEeEA7F14dE0cD8A1462C0136E429b323345
-```
-
-#### Post-Deployment Steps
-* **Verify Contracts:** Use a block explorer (e.g., Etherscan) to verify your contracts are deployed correctly and to explore the contract's details.
-* **Interact with Contracts:** Utilize the provided addresses to interact with your deployed contracts via a web interface or directly through scripts and tools like Hardhat or web3.js.
-* **Set Up Event Management:** Use the deployed **EventChainEventManagerContract** to set up and manage events, mint tickets, and more.
-
-Deploying your EventChain contracts with Hardhat Ignition ensures a smooth, efficient, and error-free process, paving the way for a robust and transparent event ticketing system.
+### Security Features
+- ✅ Blockchain-verified ownership
+- ✅ Anti-counterfeit protection
+- ✅ Transparent transfer history
+- ✅ Smart contract access control
+- ✅ Secure payment processing
+- ✅ On-chain validation
 
 ## 🧪 Testing
-Testing is a critical part of the development process for ensuring that our smart contracts function correctly and securely. The EventChain project includes comprehensive test suites for both the EventChainContract and the EventChainEventManagerContract. These tests cover a wide range of scenarios to ensure robustness and reliability.
 
-### Running the Tests
-To run the tests, use the following command:
-
-```shell
+Run smart contract tests:
+```bash
 npx hardhat test
 ```
 
-This command will execute all the test scripts located in the test directory, and you should see output similar to the following:
-
-```shell
-  EventChainContract
-    ✔ Should set the right owner (4323ms)
-    ✔ Should mint a ticket (115ms)
-    ✔ Should validate a ticket (134ms)
-    ✔ Should fail to validate an already used ticket (177ms)
-    ✔ Should fail to validate an expired ticket (92ms)
-    ✔ Should update ticket metadata (110ms)
-    ✔ Should not allow non-owner to update ticket metadata (97ms)
-    ✔ Should set max resale price (73ms)
-    ✔ Should not allow non-owner to set max resale price (63ms)
-    ✔ Should burn expired tickets (106ms)
-    ✔ Should not allow burning of valid tickets (60ms)
-    ✔ Should transfer ticket with history update (61ms)
-    ✔ Should not allow non-owner to transfer ticket (54ms)
-
-  EventChainEventManagerContract
-    ✔ Should set the right owner (83ms)
-    ✔ Should set the event chain address (66ms)
-    ✔ Should create an event (112ms)
-    ✔ Should mint a ticket (82ms)
-    ✔ Should transfer an event (79ms)
-    ✔ Should not allow non-owner to transfer an event (82ms)
-    ✔ Should not allow minting a ticket for non-existent event (88ms)
-    ✔ Should not allow minting a ticket by non-organizer (85ms)
-    ✔ Should not allow accessing non-existent event details (79ms)
-
-
-  22 passing (6s)
+Run with gas reporting:
+```bash
+REPORT_GAS=true npx hardhat test
 ```
 
-You can also use ganache to carry out the tests, for this it is only necessary to use the network option
+## � Deployment
 
-```shell
-npx hardhat --network ganache test
+### Deploy Contracts to Monad Testnet
+
+1. **Configure environment**
+```bash
+# Create .env file
+MONAD_TESTNET_RPC_URL=https://testnet-rpc.monad.xyz
+PRIVATE_KEY=your_wallet_private_key
 ```
 
-<img width="auto" src="./doc/ganache.PNG" />
+2. **Compile contracts**
+```bash
+npx hardhat compile
+```
 
-Tests provide comprehensive coverage of all smart contract functionalities. They validate critical operations such as ticket creation, transfer, validation, and metadata updates. This thorough testing helps ensure that the EventChain platform is secure, reliable, and ready for deployment in real-world scenarios.
+3. **Deploy**
+```bash
+npx hardhat run scripts/deploy.js --network monadTestnet
+```
 
+### Currently Deployed
+- **EventChainContract**: `0x7D70097F097Ba768Dda48E314206f5A879d2873A`
+- **EventChainEventManagerContract**: `0x3b3E674a6BEaa5D49dE3365Ad6e991F1Dd9701aA`
 
-## Visitors Count
+## 🐛 Troubleshooting
 
-<img width="auto" src="https://profile-counter.glitch.me/eventchain_blockchain/count.svg" />
+### Common Issues
+
+**"Network Not Found"**
+- Add Monad Testnet to MetaMask
+- Verify RPC URL: `https://testnet-rpc.monad.xyz`
+- Check Chain ID: `10143`
+
+**"Insufficient Funds"**
+- Get MON from [faucet.monad.xyz](https://faucet.monad.xyz/)
+- Ensure enough MON for gas + ticket price
+
+**"Transaction Failed"**
+- Verify connected to Monad Testnet
+- Check wallet has sufficient balance
+- Try refreshing and reconnecting wallet
+
+**"Tickets Not Showing"**
+- Confirm connected to Monad Testnet (Chain ID: 10143)
+- Check wallet owns tickets on blockchain
+- Refresh page to re-sync blockchain data
+
+## 📚 Documentation
+
+- [Monad Documentation](https://docs.monad.xyz)
+- [Hardhat Documentation](https://hardhat.org/docs)
+- [wagmi Documentation](https://wagmi.sh)
+- [shadcn/ui](https://ui.shadcn.com)
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## � Acknowledgments
+
+- **Monad** - For the blazing-fast blockchain infrastructure
+- **OpenZeppelin** - For secure smart contract libraries
+- **shadcn** - For beautiful UI components
+- **wagmi** - For excellent Web3 React hooks
+- **Hardhat** - For smart contract development tools
+
+## 📧 Contact
+
+**Developer**: Sourabh Yadav  
+**GitHub**: [@YadavSourabhGH](https://github.com/YadavSourabhGH)  
+**Repository**: [monad-blitz-eventmint](https://github.com/YadavSourabhGH/monad-blitz-eventmint)
+
+## �️ Roadmap
+
+- [x] Basic NFT ticketing system
+- [x] Event creation and management
+- [x] Ticket purchase with MON
+- [x] QR code generation
+- [x] Beautiful UI with glassmorphism
+- [ ] IPFS integration for metadata
+- [ ] Email notifications
+- [ ] Event analytics dashboard
+- [ ] Multi-chain support
+- [ ] Mobile app (React Native)
+- [ ] Secondary marketplace
+- [ ] Batch minting
+- [ ] Dynamic pricing
+- [ ] DAO governance
+
+---
+
+<p align="center">
+  <strong>Built with ❤️ for the Monad ecosystem</strong>
+</p>
+
+<p align="center">
+  ⭐ Star this repo if you find it helpful!
+</p>
+
 

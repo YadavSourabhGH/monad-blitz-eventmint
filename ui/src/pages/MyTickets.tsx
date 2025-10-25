@@ -26,16 +26,15 @@ const MyTickets = () => {
   const chainId = useChainId();
   const isMonadTestnet = chainId === 10143;
 
-  // Use blockchain tickets if connected to Monad, otherwise use mock data
-  const { data: mockTickets = [], isLoading: isLoadingMock } = useUserTickets(wallet.address);
+  // Only use blockchain tickets when connected to Monad Testnet
   const { tickets: blockchainTickets, ticketCount, isLoading: isLoadingBlockchain } = useUserBlockchainTickets(address);
 
   // Subscribe to real-time updates
   useEventSubscription();
 
-  // Determine which tickets to show
-  const myTickets = isConnected && isMonadTestnet ? blockchainTickets : mockTickets;
-  const isLoading = isConnected && isMonadTestnet ? isLoadingBlockchain : isLoadingMock;
+  // Show blockchain tickets ONLY when connected to Monad
+  const myTickets = isConnected && isMonadTestnet ? blockchainTickets : [];
+  const isLoading = isConnected && isMonadTestnet ? isLoadingBlockchain : false;
 
   const handleDownloadTicket = (ticket: any) => {
     // Generate and download ticket as PDF or image
@@ -97,7 +96,7 @@ const MyTickets = () => {
           <div className="flex items-center justify-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-primary" />
             <span className="ml-2 text-white">
-              {isConnected && isMonadTestnet ? 'Loading blockchain tickets...' : 'Loading tickets...'}
+              Loading blockchain tickets from Monad Testnet...
             </span>
           </div>
         </div>
@@ -121,9 +120,19 @@ const MyTickets = () => {
           </h1>
           <p className="text-gray-400 text-lg">
             Your NFT event tickets collection
-            {isConnected && isMonadTestnet && (
+            {isConnected && isMonadTestnet && ticketCount > 0 && (
               <span className="ml-2 text-green-400">
-                • {ticketCount} blockchain ticket{ticketCount !== 1 ? 's' : ''}
+                • {ticketCount} blockchain ticket{ticketCount !== 1 ? 's' : ''} on Monad
+              </span>
+            )}
+            {isConnected && !isMonadTestnet && (
+              <span className="ml-2 text-yellow-400">
+                • Switch to Monad Testnet to view your tickets
+              </span>
+            )}
+            {!isConnected && (
+              <span className="ml-2 text-blue-400">
+                • Connect wallet to get started
               </span>
             )}
           </p>
@@ -132,20 +141,58 @@ const MyTickets = () => {
         {myTickets.length === 0 ? (
           <Card className="glass p-12 text-center">
             <Ticket className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-            <h3 className="text-xl font-semibold mb-2">No tickets yet</h3>
+            <h3 className="text-xl font-semibold mb-2">No Tickets Yet</h3>
             <p className="text-muted-foreground mb-6">
-              {isConnected && isMonadTestnet 
-                ? 'Start exploring events and buy your first NFT ticket on Monad blockchain'
-                : 'Connect to Monad Testnet to see your blockchain tickets or explore events'}
+              {!isConnected 
+                ? 'Connect your wallet to view and purchase NFT tickets'
+                : !isMonadTestnet
+                ? 'Switch to Monad Testnet to see your blockchain tickets'
+                : 'Purchase your first NFT ticket from the marketplace to get started!'}
             </p>
             <div className="flex gap-4 justify-center">
-              <Link to="/marketplace">
-                <Button variant="gradient">Explore Events</Button>
-              </Link>
-              {!isConnected && (
-                <Link to="/signup">
-                  <Button variant="outline">Connect Wallet</Button>
+              {isConnected && isMonadTestnet ? (
+                <Link to="/marketplace">
+                  <Button variant="gradient">
+                    Browse Events
+                  </Button>
                 </Link>
+              ) : (
+                <>
+                  {!isConnected && (
+                    <Link to="/signup">
+                      <Button variant="gradient">Connect Wallet</Button>
+                    </Link>
+                  )}
+                  {isConnected && !isMonadTestnet && (
+                    <Button 
+                      variant="gradient"
+                      onClick={async () => {
+                        try {
+                          await window.ethereum?.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{ chainId: '0x279F' }], // 10143 in hex
+                          });
+                        } catch (error: any) {
+                          if (error.code === 4902) {
+                            // Network not added, add it
+                            await window.ethereum?.request({
+                              method: 'wallet_addEthereumChain',
+                              params: [{
+                                chainId: '0x279F',
+                                chainName: 'Monad Testnet',
+                                nativeCurrency: { name: 'MON', symbol: 'MON', decimals: 18 },
+                                rpcUrls: ['https://testnet-rpc.monad.xyz'],
+                                blockExplorerUrls: ['https://testnet.monadexplorer.com'],
+                              }],
+                            });
+                          }
+                        }
+                      }}
+                    >
+                      Switch to Monad Testnet
+                    </Button>
+                  )}
+                </>
               )}
             </div>
           </Card>
