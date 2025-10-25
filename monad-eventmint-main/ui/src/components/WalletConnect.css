@@ -1,0 +1,95 @@
+.wallet-connect {
+  display: flex;
+  align-items: center;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #f8f9fa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+}
+
+.network-display,
+.balance-display,
+.account-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.network-display {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+}
+
+.network-label {
+  font-size: 1.1rem;
+}
+
+.network-value {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.balance-label,
+.account-label {
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.balance-value,
+.account-value {
+  color: #333;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.disconnect-button {
+  background: #ff6b6b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.disconnect-button:hover {
+  background: #ff5252;
+  transform: translateY(-1px);
+}
+
+.connect-button-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.connect-button-header:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.connect-button-header:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .wallet-info {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}

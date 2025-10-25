@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 15% 9%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 12% 12%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 12% 12%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 240 5% 96%;
+    --primary-glow: 280 80% 60%;
+
+    --secondary: 240 10% 18%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 15% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 5% 96%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 18%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 50%), hsl(280 80% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(263 70% 50%), hsl(180 100% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(240 12% 12% / 0.6), hsl(240 12% 14% / 0.4));
+    
+    --shadow-glow: 0 0 40px hsl(263 70% 50% / 0.3);
+    --shadow-glow-accent: 0 0 40px hsl(180 100% 50% / 0.3);
+
+    --sidebar-background: 240 15% 9%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 240 5% 96%;
+    --sidebar-accent: 240 10% 18%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 263 70% 50%;
+  }
+
+  .dark {
+    --background: 240 15% 9%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 12% 12%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 12% 12%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 240 5% 96%;
+    --primary-glow: 280 80% 60%;
+
+    --secondary: 240 10% 18%;
+    --secondary-foreground: 240 5% 96%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 240 15% 9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 240 5% 96%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 18%;
+    --ring: 263 70% 50%;
+    
+    --sidebar-background: 240 15% 9%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 263 70% 50%;
+    --sidebar-primary-foreground: 240 5% 96%;
+    --sidebar-accent: 240 10% 18%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 10% 20%;
+    --sidebar-ring: 263 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 20% 20%, hsl(263 70% 50% / 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, hsl(180 100% 50% / 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-xl bg-card/40 border border-border/50;
+  }
+  
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--shadow-glow-accent);
+  }
+}
+
+/* Anime Navbar Animations */
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
