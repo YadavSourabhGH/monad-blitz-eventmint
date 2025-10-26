@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MyTickets from "./pages/MyTickets";
 import CreateEvent from "./pages/CreateEvent";
@@ -19,6 +20,7 @@ const App = () => {
       <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/my-tickets" element={<MyTickets />} />
           <Route path="/marketplace" element={<Marketplace />} />

@@ -127,19 +127,17 @@ export const Navbar = () => {
                       Sign Up
                     </Button>
                   </Link>
-                  <Button 
-                    variant="gradient" 
-                    size="default" 
-                    onClick={connectWallet} 
-                    disabled={wallet.isConnecting}
-                    className="relative overflow-hidden group"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Wallet className="w-4 h-4 relative z-10" />
-                    <span className="relative z-10">
-                      {wallet.isConnecting ? 'Connecting...' : 'Connect Wallet'}
-                    </span>
-                  </Button>
+                  <Link to="/login">
+                    <Button 
+                      variant="gradient" 
+                      size="default" 
+                      className="relative overflow-hidden group"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <Wallet className="w-4 h-4 relative z-10" />
+                      <span className="relative z-10">Login</span>
+                    </Button>
+                  </Link>
                 </div>
               )}
             </div>
